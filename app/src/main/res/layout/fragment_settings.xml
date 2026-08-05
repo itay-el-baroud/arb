@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="حد الحظر التلقائي (Smart Block)"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/etSmartBlockThreshold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="عدد المحاولات (مثال: 5)"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btnSaveSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="حفظ"
+        android:layout_marginTop="16dp" />
+
+    <Switch
+        android:id="@+id/switchOnlyUnknown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="حظر الأرقام غير المسجلة فقط"
+        android:layout_marginTop="24dp" />
+
+</LinearLayout>
