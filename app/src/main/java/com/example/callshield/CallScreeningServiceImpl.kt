@@ -1,8 +1,8 @@
 package com.example.callshield
 
+import android.os.Build
 import android.telecom.Call
 import android.telecom.CallScreeningService
-import android.os.Build
 import androidx.annotation.RequiresApi
 
 @RequiresApi(Build.VERSION_CODES.N)
@@ -17,7 +17,7 @@ class CallScreeningServiceImpl : CallScreeningService() {
         val isTemporarilyExpired = blocked != null && blocked.blockUntil in 1 until now
 
         if (blocked != null && !isTemporarilyExpired) {
-            val response = CallResponse.Builder()
+            val response = CallScreeningService.CallResponse.Builder()
                 .setDisallowCall(true)
                 .setRejectCall(true)
                 .setSkipCallLog(false)
@@ -34,7 +34,7 @@ class CallScreeningServiceImpl : CallScreeningService() {
 
             NotificationHelper.showBlockedCallNotification(applicationContext, number, updated.attemptCount)
         } else {
-            respondToCall(callDetails, CallResponse.Builder().build())
+            respondToCall(callDetails, CallScreeningService.CallResponse.Builder().build())
             checkSmartBlock(applicationContext, number)
         }
     }
